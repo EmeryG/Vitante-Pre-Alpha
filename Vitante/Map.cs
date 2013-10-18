@@ -1,11 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.GamerServices;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+
 
 namespace Vitante
 {
-    enum Tiles
+    enum Tile
     {
         None,
         Grass,
@@ -18,36 +25,39 @@ namespace Vitante
 
     class MapLoader
     {
-        public static List<List<Tiles>> GetMap(string[] lines)
+        public static Map GetMap(string[] lines)
         {
-            List<List<Tiles>> hi = new List<List<Tiles>>();
+            List<List<Tile>> hi = new List<List<Tile>>();
             foreach (string sline in lines)
             {
                 if (sline.ToLower().StartsWith("blocks:"))
                 {
                     string line = sline.Substring(7);
-                    List<Tiles> mc = new List<Tiles>();
+                    List<Tile> mc = new List<Tile>();
                     foreach (char c in line.ToCharArray())
                     {
                         switch (c)
                         {
                             case 'g':
-                                mc.Add(Tiles.Grass);
+                                mc.Add(Tile.Grass);
                                 break;
                             case 'i':
-                                mc.Add(Tiles.StoneBrick);
+                                mc.Add(Tile.IceBrick);
+                                break;
+                            case 's':
+                                mc.Add(Tile.StoneBrick);
                                 break;
                             case 't':
-                                mc.Add(Tiles.SandStone);
+                                mc.Add(Tile.SandStone);
                                 break;
                             case 'b':
-                                mc.Add(Tiles.Brick);
+                                mc.Add(Tile.Brick);
                                 break;
                             case 'w':
-                                mc.Add(Tiles.WoodPlank);
+                                mc.Add(Tile.WoodPlank);
                                 break;
                             default:
-                                mc.Add(Tiles.None);
+                                mc.Add(Tile.None);
                                 break;
                         }
                     }
@@ -56,11 +66,118 @@ namespace Vitante
             }
             if (hi.Count == 0)
             {
-                List<Tiles> mc = new List<Tiles>();
-                mc.Add(Tiles.None);
+                List<Tile> mc = new List<Tile>();
+                mc.Add(Tile.None);
                 hi.Add(mc);
             }
-            return hi;
+            return new Map(hi);
+        }
+    }
+
+    class Blocks
+    {
+        static Texture2D none;
+        static Texture2D grass;
+        static Texture2D icebrick;
+        static Texture2D stonebrick;
+        static Texture2D sandstone;
+        static Texture2D brick;
+        static Texture2D woodplank;
+
+        static public void SetTextures(Texture2D[] tiles)
+        {
+            none = tiles[0];
+            grass = tiles[1];
+            icebrick = tiles[2];
+            stonebrick = tiles[3];
+            sandstone = tiles[4];
+            brick = tiles[5];
+            woodplank = tiles[6];
+        }
+
+        static public Texture2D GetTexture(Tile t)
+        {
+            switch (t)
+            {
+                case Tile.None:
+                    return none;
+                case Tile.Grass:
+                    return grass;
+                case Tile.IceBrick:
+                    return icebrick;
+                case Tile.SandStone:
+                    return sandstone;
+                case Tile.Brick:
+                    return brick;
+                case Tile.WoodPlank:
+                    return woodplank;
+                default:
+                    return null;
+            }
+        }
+            
+        static public Boolean Solid(Tile t)
+        {
+            switch (t)
+            {
+                case Tile.IceBrick:
+                    return true;
+                case Tile.StoneBrick:
+                    return true;
+                case Tile.SandStone:
+                    return true;
+                case Tile.Brick:
+                    return true;
+                case Tile.WoodPlank:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+    }
+
+    class Map
+    {
+        List<List<Tile>> main = new List<List<Tile>>();
+
+        public Map(List<List<Tile>> t)
+        {
+            main = t;
+        }
+
+        public Map() { }
+
+        public void AddLine(List<Tile> line)
+        {
+            main.Add(line);
+        }
+
+        public List<List<Tile>> GetMain()
+        {
+            return main;
+        }
+
+        public Tile GetTile(Vector2 point)
+        {
+            Tile t = Tile.None;
+            try
+            {
+                List<Tile> a = main.ToArray()[(int)Math.Floor(point.Y / 64)];
+                t = a.ToArray()[(int)Math.Floor(point.X / 64)];
+            } catch(IndexOutOfRangeException) { }
+            switch (t)
+            {
+                case Tile.None:
+                    Console.WriteLine("n");
+                    break;
+                case Tile.Grass:
+                    Console.WriteLine("g");
+                    break;
+                case Tile.IceBrick:
+                    Console.WriteLine("i");
+                    break;
+            }
+            return t;
         }
     }
 }
