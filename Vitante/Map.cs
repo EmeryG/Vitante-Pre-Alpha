@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Vitante
 {
+    // Tile enumeration
     enum Tile
     {
         None,
@@ -30,9 +31,11 @@ namespace Vitante
             List<List<Tile>> hi = new List<List<Tile>>();
             foreach (string sline in lines)
             {
+                // Checks and removes the blocks starter.
                 if (sline.ToLower().StartsWith("blocks:"))
                 {
                     string line = sline.Substring(7);
+                    // Starts processing the characters to tiles.
                     List<Tile> mc = new List<Tile>();
                     foreach (char c in line.ToCharArray())
                     {
@@ -84,6 +87,8 @@ namespace Vitante
         static Texture2D brick;
         static Texture2D woodplank;
 
+
+        // Setting textures of tiles.
         static public void SetTextures(Texture2D[] tiles)
         {
             none = tiles[0];
@@ -95,6 +100,7 @@ namespace Vitante
             woodplank = tiles[6];
         }
 
+        // Gets the texture of a tile.
         static public Texture2D GetTexture(Tile t)
         {
             switch (t)
@@ -116,6 +122,7 @@ namespace Vitante
             }
         }
             
+        // Checks if a tile is solid.
         static public Boolean Solid(Tile t)
         {
             switch (t)
@@ -147,16 +154,19 @@ namespace Vitante
 
         public Map() { }
 
+        // Adds a row (x) of tiles
         public void AddLine(List<Tile> line)
         {
             main.Add(line);
         }
 
+        // For ease of drawing
         public List<List<Tile>> GetMain()
         {
             return main;
         }
 
+        // Get a tile at a specific coordnate
         public Tile GetTile(Vector2 point)
         {
             Tile t = Tile.None;

@@ -13,9 +13,9 @@ namespace Vitante
 {
     public class Game : Microsoft.Xna.Framework.Game
     {
+        // Good old placeholder variables.
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-
         Texture2D main;
         Vector2 past;
         Map map;
@@ -35,16 +35,24 @@ namespace Vitante
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            // Tile Loading
             Texture2D[] tiles = new Texture2D[7];
             tiles[0] = new Texture2D(graphics.GraphicsDevice, 64, 64);
             tiles[1] = Content.Load<Texture2D>("grass");
             tiles[2] = Content.Load<Texture2D>("icebrick");
             Blocks.SetTextures(tiles);
 
+            // Loading character
             main = Content.Load<Texture2D>("character");
+
+            // Loading relavance coord
             past = Vector2.Zero;
+
+            // So the player doesn't start in a wall.
             past.X =+ 64;
             past.Y =+ 64;
+
+            // Makes a fake file for map processing.
             string[] list = new string[6];
             list[0] += "Blocks:iiiiiii";
             list[1] += "Blocks:iggiggi";
@@ -67,17 +75,18 @@ namespace Vitante
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+            // Movement, moves the relavance coord
             KeyboardState keyboard = Keyboard.GetState();
             if (keyboard.IsKeyDown(Keys.W)) { past.Y += 5; }
             if (keyboard.IsKeyDown(Keys.S)) { past.Y -= 5; }
             if (keyboard.IsKeyDown(Keys.A)) { past.X += 5; }
             if (keyboard.IsKeyDown(Keys.D)) { past.X -= 5; }
             
+            // Collision Detection. Checks the tile at a location, then it checks if the tile is solid, and undos the movement if it is.
             if (keyboard.IsKeyDown(Keys.W) && Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - past.X, graphics.GraphicsDevice.Viewport.Height / 2 - past.Y)))) { past.Y += -5; }
             if (keyboard.IsKeyDown(Keys.S) && Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - past.X, graphics.GraphicsDevice.Viewport.Height / 2 - past.Y)))) { past.Y -= -5; }
             if (keyboard.IsKeyDown(Keys.A) && Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - past.X, graphics.GraphicsDevice.Viewport.Height / 2 - past.Y)))) { past.X += -5; }
             if (keyboard.IsKeyDown(Keys.D) && Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - past.X, graphics.GraphicsDevice.Viewport.Height / 2 - past.Y)))) { past.X -= -5; }
-
 
             base.Update(gameTime);
         }
@@ -85,10 +94,10 @@ namespace Vitante
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
             Vector2 pos = Vector2.Zero;
 
+            // Draws Map, according to relavance coord.
             int a = 0;
             foreach (List<Tile> list in map.GetMain())
             {
@@ -104,7 +113,11 @@ namespace Vitante
                 }
                 a += 1;
             }
+
+            // Draws Character (for now)
             spriteBatch.Draw(main, new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2), Color.White);
+            
+            // Ends spriteBatch, draws a game.
             spriteBatch.End();
             base.Draw(gameTime);
         }
