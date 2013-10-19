@@ -16,9 +16,9 @@ namespace Vitante
         // Good old placeholder variables.
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D main;
-        Vector2 past;
+        Player main;
         Map map;
+        Texture2D cursor;
 
         public Game()
         {
@@ -34,6 +34,7 @@ namespace Vitante
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            cursor = Content.Load<Texture2D>("cursor");
 
             // Tile Loading
             Texture2D[] tiles = new Texture2D[7];
@@ -43,14 +44,7 @@ namespace Vitante
             Blocks.SetTextures(tiles);
 
             // Loading character
-            main = Content.Load<Texture2D>("character");
-
-            // Loading relavance coord
-            past = Vector2.Zero;
-
-            // So the player doesn't start in a wall.
-            past.X =+ 64;
-            past.Y =+ 64;
+            main = new Player(Content.Load<Texture2D>("character"), new Vector2(64, 64));
 
             // Makes a fake file for map processing.
             string[] list = new string[6];
@@ -75,18 +69,7 @@ namespace Vitante
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            // Movement, moves the relavance coord
-            KeyboardState keyboard = Keyboard.GetState();
-            if (keyboard.IsKeyDown(Keys.W)) { past.Y += 5; }
-            if (keyboard.IsKeyDown(Keys.S)) { past.Y -= 5; }
-            if (keyboard.IsKeyDown(Keys.A)) { past.X += 5; }
-            if (keyboard.IsKeyDown(Keys.D)) { past.X -= 5; }
-            
-            // Collision Detection. Checks the tile at a location, then it checks if the tile is solid, and undos the movement if it is.
-            if (keyboard.IsKeyDown(Keys.W) && Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - past.X, graphics.GraphicsDevice.Viewport.Height / 2 - past.Y)))) { past.Y += -5; }
-            if (keyboard.IsKeyDown(Keys.S) && Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - past.X, graphics.GraphicsDevice.Viewport.Height / 2 - past.Y)))) { past.Y -= -5; }
-            if (keyboard.IsKeyDown(Keys.A) && Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - past.X, graphics.GraphicsDevice.Viewport.Height / 2 - past.Y)))) { past.X += -5; }
-            if (keyboard.IsKeyDown(Keys.D) && Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - past.X, graphics.GraphicsDevice.Viewport.Height / 2 - past.Y)))) { past.X -= -5; }
+            main.Update(Keyboard.GetState(), graphics, map);
 
             base.Update(gameTime);
         }
@@ -104,18 +87,25 @@ namespace Vitante
                 int b = 0;
                 foreach (Tile t in list)
                 {
-                    spriteBatch.Draw(Blocks.GetTexture(t), new Vector2(0 + past.X + b * 64, 0 + past.Y + a * 64), Color.White);
-                    if (b == 0 && a == 0)
-                    {
-                        
-                    }
+                    spriteBatch.Draw(Blocks.GetTexture(t), new Vector2(0 + main.GetRelevance().X + b * 64, 0 + main.GetRelevance().Y + a * 64), Color.White);
                     b += 1;
                 }
                 a += 1;
             }
 
             // Draws Character (for now)
-            spriteBatch.Draw(main, new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2), Color.White);
+            spriteBatch.Draw(
+                main.GetTexture(), 
+                new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2), 
+                null,
+                Color.White,
+                main.GetRotation(),
+                new Vector2(main.GetTexture().Width / 2, main.GetTexture().Height / 2),
+                1.0f,
+                SpriteEffects.None,
+                1.0f);
+
+            spriteBatch.Draw(cursor, new Vector2(Mouse.GetState().X, Mouse.GetState().Y), Color.White);
             
             // Ends spriteBatch, draws a game.
             spriteBatch.End();

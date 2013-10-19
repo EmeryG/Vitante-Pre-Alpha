@@ -175,18 +175,6 @@ namespace Vitante
                 List<Tile> a = main.ToArray()[(int)Math.Floor(point.Y / 64)];
                 t = a.ToArray()[(int)Math.Floor(point.X / 64)];
             } catch(IndexOutOfRangeException) { }
-            switch (t)
-            {
-                case Tile.None:
-                    Console.WriteLine("n");
-                    break;
-                case Tile.Grass:
-                    Console.WriteLine("g");
-                    break;
-                case Tile.IceBrick:
-                    Console.WriteLine("i");
-                    break;
-            }
             return t;
         }
     }
