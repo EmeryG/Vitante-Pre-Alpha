@@ -11,40 +11,25 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Vitante
 {
-    class Player
+    class Player : Mob
     {
-        Vector2 relevance = Vector2.Zero;
-        Texture2D texture;
-        float rotation = 0f;
-
         public Player(Texture2D t)
-        {
-            texture = t;
-        }
+            : base(t)
+        { }
 
-        public Player(Texture2D t, Vector2 r)
-        {
-            texture = t;
-            relevance = r;
-        }
-
-        public Texture2D GetTexture()
-        {
-            return texture;
-        }
+        public Player(Texture2D t, Vector2 coords)
+            : base(t, coords)
+        { }
 
         public Vector2 GetRelevance()
         {
             return relevance;
         }
 
-        public float GetRotation()
-        {
-            return rotation;
-        }
-
         public void Update(KeyboardState keyboard, GraphicsDeviceManager graphics, Map map)
         {
+            coord.X = graphics.GraphicsDevice.Viewport.Width / 2 - relevance.X;
+            coord.Y = graphics.GraphicsDevice.Viewport.Height / 2 - relevance.Y;
             if (keyboard.IsKeyDown(Keys.W)) { relevance.Y += 5; rotation = (float)Math.PI * 180f / 180f; }
             if (keyboard.IsKeyDown(Keys.S)) { relevance.Y -= 5; rotation = (float)Math.PI * 0f / 180f; }
             if (keyboard.IsKeyDown(Keys.A)) { relevance.X += 5; rotation = (float)Math.PI * 90f / 180f; }
@@ -73,24 +58,29 @@ namespace Vitante
             }
 
             // Collision Detection. Checks the tile at a location, then it checks if the tile is solid, and undos the movement if it is.
-            if (keyboard.IsKeyDown(Keys.W) && 
-                Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - relevance.X + texture.Width / 2, 
-                    graphics.GraphicsDevice.Viewport.Height / 2 - relevance.Y - texture.Height / 2)))) 
+            if (Blocks.Solid(map.GetTile(new Vector2(coord.X - texture.Width / 2,
+                    coord.Y - texture.Height / 2))) &&
+                Blocks.Solid(map.GetTile(new Vector2(coord.X + texture.Width / 2,
+                    coord.Y - texture.Height / 2))))
             { relevance.Y += -5; }
 
-            if (keyboard.IsKeyDown(Keys.S) && 
-                Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - relevance.X + texture.Width / 2, 
-                    graphics.GraphicsDevice.Viewport.Height / 2 - relevance.Y + texture.Height / 2)))) 
-            { relevance.Y -= -5; }
-
-            if (keyboard.IsKeyDown(Keys.A) && 
-                Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - relevance.X - texture.Width / 2, 
-                    graphics.GraphicsDevice.Viewport.Height / 2 - relevance.Y + texture.Height / 2)))) 
+            if (Blocks.Solid(map.GetTile(new Vector2(coord.X - texture.Width / 2,
+                    coord.Y + texture.Height / 2))) &&
+                Blocks.Solid(map.GetTile(new Vector2(coord.X + texture.Width / 2,
+                    coord.Y + texture.Height / 2))))
+            {
+                relevance.Y -= -5;
+            }
+            if (Blocks.Solid(map.GetTile(new Vector2(coord.X - texture.Width / 2,
+                                coord.Y - texture.Height / 2))) &&
+                            Blocks.Solid(map.GetTile(new Vector2(coord.X - texture.Width / 2,
+                                coord.Y + texture.Height / 2))))
             { relevance.X += -5; }
 
-            if (keyboard.IsKeyDown(Keys.D) && 
-                Blocks.Solid(map.GetTile(new Vector2(graphics.GraphicsDevice.Viewport.Width / 2 - relevance.X + texture.Width / 2, 
-                    graphics.GraphicsDevice.Viewport.Height / 2 - relevance.Y + texture.Height / 2)))) 
+            if (Blocks.Solid(map.GetTile(new Vector2(coord.X + texture.Width / 2,
+                      coord.Y - texture.Height / 2))) &&
+                  Blocks.Solid(map.GetTile(new Vector2(coord.X + texture.Width / 2,
+                      coord.Y + texture.Height / 2))))
             { relevance.X -= -5; }
         }
     }

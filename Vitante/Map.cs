@@ -137,6 +137,8 @@ namespace Vitante
                     return true;
                 case Tile.WoodPlank:
                     return true;
+                case Tile.None:
+                    return true;
                 default:
                     return false;
             }
