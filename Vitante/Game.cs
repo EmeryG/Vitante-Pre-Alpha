@@ -47,13 +47,14 @@ namespace Vitante
             main = new Player(Content.Load<Texture2D>("character"), new Vector2(64, 64));
 
             // Makes a fake file for map processing.
-            string[] list = new string[6];
-            list[0] += "Blocks:iiiiiii";
-            list[1] += "Blocks:iggiggi";
-            list[2] += "Blocks:iggiggi";
-            list[3] += "Blocks:iggiigi";
-            list[4] += "Blocks:igggggi";
-            list[5] += "Blocks:iggiiii";
+            string[] list = new string[7];
+            list[0] += "Blocks:iiiiiiiii";
+            list[1] += "Blocks:igggggggi";
+            list[2] += "Blocks:igggggggi";
+            list[3] += "Blocks:igggigggi";
+            list[4] += "Blocks:igggggggi";
+            list[5] += "Blocks:igggggggi";
+            list[6] += "Blocks:iiiiiiiii";
 
             map = MapLoader.GetMap(list);
         }
