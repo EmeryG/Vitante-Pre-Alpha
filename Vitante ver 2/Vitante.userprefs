@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Vitante.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="GameEngine\Sprites\World\Player.cs">
+    <Files>
+      <File FileName="GameEngine\Sprites\World\Player.cs" Line="11" Column="23" />
+      <File FileName="GameEngine\Sprites\Types.cs" Line="37" Column="27" />
+      <File FileName="GameEngine\Sprites\Sprite.cs" Line="56" Column="1" />
+      <File FileName="GameMain.cs" Line="53" Column="69" />
+      <File FileName="GameEngine\GameStates\GameState.cs" Line="13" Column="9" />
+      <File FileName="GameEngine\GameStates\GameStateManager.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

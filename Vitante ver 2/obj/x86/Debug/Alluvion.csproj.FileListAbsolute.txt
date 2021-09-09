@@ -1,0 +1,58 @@
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\Alluvion.exe
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\Alluvion.pdb
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\Lidgren.Network.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\obj\x86\Debug\Alluvion.csprojResolveAssemblyReference.cache
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\obj\x86\Debug\Alluvion.exe
+C:\Users\WaterNode\Documents\Alluvion\Alluvion\Alluvion\obj\x86\Debug\Alluvion.pdb
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\obj\x86\Debug\Alluvion.exe
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\obj\x86\Debug\Alluvion.csprojResolveAssemblyReference.cache
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Alluvion.exe
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Alluvion.pdb
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Lidgren.Network.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\obj\x86\Debug\Alluvion.pdb
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Content\Assets\Character.png
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Content\Assets\Grass.png
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Content\Assets\Sand.png
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Content\Assets\StoneWall.png
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Content\Assets\Tree.png
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Content\Assets\Water.png
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Content\Assets\WoodenPlank.png
+C:\Users\WaterNode\Dropbox\Game Development Folder\Alluvion\Alluvion\bin\Windows\Debug\Content\Assets\Snow.png
